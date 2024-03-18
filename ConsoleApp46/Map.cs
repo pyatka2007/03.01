@@ -27,7 +27,7 @@ namespace ConsoleApp46
                     }
                     else if (mas[i, j] == (char)1)
                     {
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
                         Console.Write(mas[i, j] + " ");
                         Console.ResetColor();
                     }
@@ -43,12 +43,12 @@ namespace ConsoleApp46
                         Console.Write(mas[i, j] + " ");
                         Console.ResetColor();
                     }
-                    //else if (mas[i, j] == (char)0177)
-                    //{
-                    //    Console.ForegroundColor = ConsoleColor.Gray;
-                    //    Console.Write(mas[i, j] + " ");
-                    //    Console.ResetColor();
-                    //}
+                    else if (mas[i, j] == (char)0177)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        Console.Write(mas[i, j] + " ");
+                        Console.ResetColor();
+                    }
                     else if (mas[i, j] == (char)2)
                     {
                         Console.ForegroundColor = ConsoleColor.Cyan;
@@ -57,7 +57,14 @@ namespace ConsoleApp46
                     }
                     else if (mas[i, j] == (char)06)
                     {
-                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        if (rnd.Next(0, 6) != 5)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        }
                         Console.Write(mas[i, j] + " ");
                         Console.ResetColor();
                     }
@@ -88,7 +95,7 @@ namespace ConsoleApp46
                     {
                         mas[i, j] = (char)3;
                     }
-                    if (count >= 20 && count < 30)
+                    if (count >= 10 && count < 17)
                     {
                         for (int k = i - 1; k <= i + 1; k++)
                         {
@@ -101,17 +108,17 @@ namespace ConsoleApp46
                             }
                         }
                     }
-                    //if (count >= 10 && count < 20)
-                    //{
-                    //    int X = i;
-                    //    int Y = j;
-                    //    for (int t = 0; t < 10; t++)
-                    //    {
-                    //        mas[X++, Y++] = (char)0177;
-                    //        if (X > mas.GetLength(0) - 1 || Y > mas.GetLength(1) - 1)
-                    //            break;
-                    //    }
-                    //}
+                    if (count >= 5 && count < 10)
+                    {
+                        int X = i;
+                        int Y = j;
+                        for (int t = 0; t < 10; t++)
+                        {
+                            mas[X++, Y++] = (char)0177;
+                            if (X > mas.GetLength(0) - 1 || Y > mas.GetLength(1) - 1)
+                                break;
+                        }
+                    }
                     if (levelWorld > 1)
                     {
                         mas[mas.GetLength(0) / 4, mas.GetLength(1) / 2] = (char)19;
@@ -120,7 +127,6 @@ namespace ConsoleApp46
             }
         }
         
-
         static public void UpArray(char[,] mas)
         {
             char[] temp = new char[mas.GetLength(0)];
@@ -368,8 +374,8 @@ namespace ConsoleApp46
                 case (char)19:
                     Forge(Hero);
                     break;
-                //case (char)0177:
-                //    return false;
+                case (char)0177:
+                    return false;
                 case (char)06:
                     return false;
                 default:
