@@ -9,21 +9,16 @@ namespace ConsoleApp46
 {
     internal class Map
     {
-        static public int levelWorld = 1; // инициализируется значение 1 
-        static Random rnd = new Random(); // создание случайных чисел
+        static public int levelWorld = 1;
+        static Random rnd = new Random();
         
-        static public void GetMap(char[,] mas) // метод принимает двумерный символьный массив в качестве аргумента
+        static public void GetMap(char[,] mas)
         {
-            //перебор элементов двумерного массива
-            for (int i = 0; i < mas.GetLength(0); i++) 
+
+            for (int i = 0; i < mas.GetLength(0); i++)
             {
                 for (int j = 0; j < mas.GetLength(1); j++)
                 {
-                    // в каждой итерации цикла проверяется значение элемента массива и в зависимости от значения выводится цветной символ
-                    //если 0, то выводится символ с синим текстом
-                    // если значение равно 1, то выводится зеленым текстом
-                    // и тд
-
                     if (mas[i, j] == '0')
                     {
                         Console.ForegroundColor = ConsoleColor.Blue;
@@ -64,12 +59,11 @@ namespace ConsoleApp46
                         Console.Write(mas[i, j] + " ");
                     }
                 }
-                Console.WriteLine(); // после перебора всех элементов происходит переход на новую строку консоли
+                Console.WriteLine();
             }
-            Console.WriteLine(); // создание пустой строки между элементами массива
-            
+            Console.WriteLine();
         }
-        static public void Array(char[,] mas) // о
+        static public void Array(char[,] mas)
         {
             Random rnd = new Random();
             for (int i = 0; i < mas.GetLength(0); i++)
@@ -137,10 +131,8 @@ namespace ConsoleApp46
                 }
             }
 
-            GetMap(mas);
+          ///  GetMap(mas);
             Win(mas);
-
-
         }
         static public void DownArray(char[,] mas)
         {
@@ -172,10 +164,9 @@ namespace ConsoleApp46
                     {
                         mas[i - 1, j] = '.';
                     }
-
                 }
             }
-            GetMap(mas);
+           /// GetMap(mas);
             Win(mas);
         }
         static public void LeftArray(char[,] mas)
@@ -209,7 +200,7 @@ namespace ConsoleApp46
 
                 }
             }
-            GetMap(mas);
+            ///GetMap(mas);
             Win(mas);
         }
         static public void RightArray(char[,] mas)
@@ -240,10 +231,9 @@ namespace ConsoleApp46
                     {
                         mas[i, j-1] = '.';
                     }
-
                 }
             }
-            GetMap(mas);
+            //GetMap(mas);
             Win(mas);
         }
         static bool Win(char[,] mas)
@@ -260,7 +250,6 @@ namespace ConsoleApp46
             }
             
             mas[10, 10] = '0';
-
             return true;
         }
 
@@ -277,6 +266,7 @@ namespace ConsoleApp46
                 Shot = rnd.Next(10);
                 Hero.HP -= Shot + levelWorld * 5;
             }
+
             if (Enemy.HP < Hero.HP)
             {
                 Hero.coin += rnd.Next(100);
@@ -285,6 +275,7 @@ namespace ConsoleApp46
             {
                 Console.Clear();
                 Console.WriteLine($"Поражение");
+                Console.ReadLine();
             }
         }
         static void Heart(Person Hero, char[,] mas)
@@ -311,12 +302,10 @@ namespace ConsoleApp46
         }
         static void Forge(Person Hero)
         {
-
             Console.WriteLine("Выберите действие");
             Console.WriteLine("1. Улучшить силу на 2");
             Console.WriteLine("Для выхода нажмите Enter");
             Console.WriteLine($"Оставшиеся деньги {Hero.coin}");
-
             ConsoleKey key;
             while ((key = Console.ReadKey().Key) != ConsoleKey.Enter){
                 switch (key)
@@ -334,7 +323,6 @@ namespace ConsoleApp46
                             Console.WriteLine("Недостаточно деняк");
                         }
                         break;
-
                 }
             }
         }

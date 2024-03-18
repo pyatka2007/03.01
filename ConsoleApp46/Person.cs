@@ -22,7 +22,6 @@ namespace ConsoleApp46
             this.HP = HP;
         }
 
-
         static public void GetCharacter(Person Hero)
         {
             Console.WriteLine($"Имя героя = {Hero.NamePerson}");
