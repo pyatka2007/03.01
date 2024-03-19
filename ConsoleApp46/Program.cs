@@ -12,8 +12,8 @@ namespace ConsoleApp46
         {
             Console.WriteLine("Введите имя персонажа");
             string name = Console.ReadLine();
-            char[,] map = new char[25, 25];
-            Map.Array(map);
+            char[,] mas = new char[25, 25];
+            Map.Generation(mas);
             Person hero = new Person(100, name);
             ConsoleKey Key;
             while ((Key = Console.ReadKey().Key) != ConsoleKey.Escape)
@@ -22,25 +22,25 @@ namespace ConsoleApp46
                 switch (Key)
                 {
                     case ConsoleKey.UpArrow:
-                        if (Activity.GetIvent(hero, map, -1, 0))
-                            Move.UpArray(map);
+                        if (Activity.GetIvent(hero, mas, -1, 0))
+                            Move.UpArray(mas);
                         break;
                     case ConsoleKey.DownArrow:
-                        if (Activity.GetIvent(hero, map, +1, 0))
-                            Move.DownArray(map);
+                        if (Activity.GetIvent(hero, mas, +1, 0))
+                            Move.DownArray(mas);
                         break;
                     case ConsoleKey.LeftArrow:
-                        if (Activity.GetIvent(hero, map, 0, -1))
-                            Move.LeftArray(map);
+                        if (Activity.GetIvent(hero, mas, 0, -1))
+                            Move.LeftArray(mas);
                         break;
                     case ConsoleKey.RightArrow:
-                        if (Activity.GetIvent(hero, map, 0, +1))
-                            Move.RightArray(map);
+                        if (Activity.GetIvent(hero, mas, 0, +1))
+                            Move.RightArray(mas);
                         break;
                     default:
                         break;
                 }
-                Map.GetMap(map);
+                Map.GetMap(mas);
                 Person.GetCharacter(hero);
             }
         }

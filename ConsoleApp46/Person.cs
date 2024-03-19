@@ -11,17 +11,13 @@ namespace ConsoleApp46
         public int MaxHP = 100;
         public int HP = 100;
         public int Strenght = 0;
-
         public int coin = 0;
-
         public string NamePerson;
-
         public Person(int HP = 100, string Name = "Враг")
         {
             NamePerson = Name;
             this.HP = HP;
         }
-
         static public void GetCharacter(Person Hero)
         {
             Console.WriteLine($"Имя героя = {Hero.NamePerson}");

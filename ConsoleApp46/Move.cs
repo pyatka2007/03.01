@@ -39,7 +39,6 @@ namespace ConsoleApp46
                     }
                 }
             }
-            ///  GetMap(mas);
             Activity.Win(mas);
         }
         static public void DownArray(char[,] mas)
@@ -72,7 +71,6 @@ namespace ConsoleApp46
                     }
                 }
             }
-            /// GetMap(mas);
             Activity.Win(mas);
         }
         static public void LeftArray(char[,] mas)
@@ -106,7 +104,6 @@ namespace ConsoleApp46
 
                 }
             }
-            ///GetMap(mas);
             Activity.Win(mas);
         }
         static public void RightArray(char[,] mas)
@@ -139,7 +136,6 @@ namespace ConsoleApp46
                     }
                 }
             }
-            //GetMap(mas);
             Activity.Win(mas);
         }
     }
