@@ -69,7 +69,7 @@ namespace ConsoleApp46
                 }
             }
             Hero.HP = Hero.MaxHP;
-            Map.Array(mas);
+            Map.Generation(mas);
         }
         static void Forge(Person Hero)
         {
