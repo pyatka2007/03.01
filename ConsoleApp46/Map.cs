@@ -113,263 +113,127 @@ namespace ConsoleApp46
                 }
             }
         }
-        static public void Move(char[,] mas)
-        {
+      
+     
+        //static public bool Win(char[,] mas)
+        //{
+        //    for (int i = 0; i < mas.GetLength(0); i++)
+        //    {
+        //        for (int j = 0; j < mas.GetLength(1); j++)
+        //        {
+        //            if (mas[i, j] == (char)1 || mas[i, j] == '0')
+        //            {
+        //                return false;
+        //            }
+        //        }
+        //    }
 
-        }
-        static public void UpArray(char[,] mas)
-        {
-            char[] temp = new char[mas.GetLength(0)];
+        //    mas[10, 10] = '0';
+        //    return true;
+        //}
 
+        //static void Batle(Person Hero, char[,] mas)
+        //{
+        //    Console.Clear();
+        //    Person Enemy = new Person(Map.levelWorld * 10);
+        //    Random rnd = new Random();
 
-            for (int i = (mas.GetLength(0) - 1); i >= 0; i--)
-            {
-                for (int j = 0; j < mas.GetLength(1); j++)
-                {
-                    if (i == (mas.GetLength(0) - 1))
-                    {
-                        temp[j] = mas[i, j];
-                    }
-                    else if (i == 0)
-                    {
-                        mas[i, j] = temp[j];
-                    }
-                    if (i != 0)
-                    {
-                        mas[i, j] = mas[i - 1, j];
-                    }
-                    if (i == (mas.GetLength(0) - 1) / 2 && j == (mas.GetLength(1) - 1) / 2)
-                    {
-                        mas[i, j] = (char)2;
-                    }
-                    if (i == (mas.GetLength(0) - 1) / 2 && j == (mas.GetLength(1) - 1) / 2)
-                    {
-                        mas[i + 1, j] = '.';
-                    }
-                }
-            }
-            ///  GetMap(mas);
-            Win(mas);
-        }
-        static public void DownArray(char[,] mas)
-        {
-            char[] temp = new char[mas.GetLength(0)];
+        //    while (Enemy.HP > 0 && Hero.HP > 0)
+        //    {
+        //        int Shot = rnd.Next(10);
+        //        Enemy.HP -= Shot + Hero.Strenght;
+        //        Shot = rnd.Next(10);
+        //        Hero.HP -= Shot + levelWorld * 5;
+        //    }
 
-            for (int i = 0; i < mas.GetLength(0); i++)
-            {
-                for (int j = 0; j < mas.GetLength(1); j++)
-                {
-                    if (i == 0)
-                    {
-                        temp[j] = mas[i, j];
-                    }
-                    else if (i == (mas.GetLength(0) - 1))
-                    {
-                        mas[i, j] = temp[j];
-                    }
-                    if (i != (mas.GetLength(0) - 1))
-                    {
-                        mas[i, j] = mas[i + 1, j];
-                    }
-                    if (i == (mas.GetLength(0) - 1) / 2 && j == (mas.GetLength(1) - 1) / 2)
-                    {
-                        mas[i, j] = (char)2;
-                    }
-                    if (i == (mas.GetLength(0) - 1) / 2 && j == (mas.GetLength(1) - 1) / 2)
-                    {
-                        mas[i - 1, j] = '.';
-                    }
-                }
-            }
-            /// GetMap(mas);
-            Win(mas);
-        }
-        static public void LeftArray(char[,] mas)
-        {
-            char[] temp = new char[mas.GetLength(1)];
+        //    if (Enemy.HP < Hero.HP)
+        //    {
+        //        Hero.coin += rnd.Next(100);
+        //    }
+        //    else
+        //    {
+        //        Console.Clear();
+        //        Console.WriteLine($"Поражение");
+        //        Console.ReadLine();
+        //    }
+        //}
+        //static void Heart(Person Hero, char[,] mas)
+        //{
+        //    Console.Clear();
+        //    Hero.MaxHP += 10;
+        //    Hero.HP += Hero.MaxHP / 10;
 
-            for (int i = 0; i < mas.GetLength(0); i++)
-            {
-                for (int j = (mas.GetLength(1) - 1); j >= 0; j--)
-                {
-                    if (j == (mas.GetLength(1) - 1))
-                    {
-                        temp[i] = mas[i, j];
-                    }
-                    else if (j == 0)
-                    {
-                        mas[i, j] = temp[i];
-                    }
-                    if (j != 0)
-                    {
-                        mas[i, j] = mas[i, j - 1];
-                    }
-                    if (i == (mas.GetLength(0) - 1) / 2 && j == (mas.GetLength(1) - 1) / 2)
-                    {
-                        mas[i, j] = (char)2;
-                    }
-                    if (i == (mas.GetLength(0) - 1) / 2 && j == (mas.GetLength(1) - 1) / 2)
-                    {
-                        mas[i, j + 1] = '.';
-                    }
+        //}
+        //static void Portal(Person Hero, char[,] mas)
+        //{
+        //    for (int i = 0; i < mas.GetLength(0); i++)
+        //    {
+        //        for (int j = 0; j < mas.GetLength(1); j++)
+        //        {
+        //            if (mas[i, j] == (char)3)
+        //            {
+        //                Hero.coin += 100;
+        //            }
+        //        }
+        //    }
+        //    Hero.HP = Hero.MaxHP;
+        //    Array(mas);
+        //}
+        //static void Forge(Person Hero)
+        //{
+        //    Console.WriteLine("Выберите действие");
+        //    Console.WriteLine("1. Улучшить силу на 2");
+        //    Console.WriteLine("Для выхода нажмите Enter");
+        //    Console.WriteLine($"Оставшиеся деньги {Hero.coin}");
+        //    ConsoleKey key;
+        //    while ((key = Console.ReadKey().Key) != ConsoleKey.Enter)
+        //    {
+        //        switch (key)
+        //        {
+        //            case ConsoleKey.NumPad1:
+        //                if (Hero.coin > 250)
+        //                {
+        //                    Hero.Strenght += 2;
+        //                    Hero.coin -= 250;
+        //                    Console.WriteLine($"Сила увеличена на 2, Текущая сила = {Hero.Strenght}");
+        //                    Console.WriteLine($"Оставшиеся деньги {Hero.coin}");
+        //                }
+        //                else
+        //                {
+        //                    Console.WriteLine("Недостаточно деняк");
+        //                }
+        //                break;
+        //        }
+        //    }
+        //}
+        //static public bool GetIvent(Person Hero, char[,] mas, int A = 0, int B = 0)
+        //{
+        //    char key = mas[((mas.GetLength(0) - 1) / 2) + A, ((mas.GetLength(1) - 1) / 2) + B];
 
-                }
-            }
-            ///GetMap(mas);
-            Win(mas);
-        }
-        static public void RightArray(char[,] mas)
-        {
-            char[] temp = new char[mas.GetLength(1)];
+        //    switch (key)
+        //    {
+        //        case (char)1:
+        //            Batle(Hero, mas);
+        //            break;
+        //        case (char)3:
+        //            Heart(Hero, mas);
+        //            break;
+        //        case '0':
+        //            levelWorld++;
+        //            Portal(Hero, mas);
+        //            break;
+        //        case (char)19:
+        //            Forge(Hero);
+        //            break;
+        //        case (char)0177:
+        //            return false;
+        //        case (char)06:
+        //            return false;
+        //        default:
+        //            break;
+        //    }
+        //    return true;
 
-            for (int i = 0; i < mas.GetLength(0); i++)
-            {
-                for (int j = 0; j < mas.GetLength(1); j++)
-                {
-                    if (j == 0)
-                    {
-                        temp[i] = mas[i, j];
-                    }
-                    else if (j == (mas.GetLength(1) - 1))
-                    {
-                        mas[i, j] = temp[i];
-                    }
-                    if (j != (mas.GetLength(1) - 1))
-                    {
-                        mas[i, j] = mas[i, j + 1];
-                    }
-                    if (i == (mas.GetLength(0) - 1) / 2 && j == (mas.GetLength(1) - 1) / 2)
-                    {
-                        mas[i, j] = (char)2;
-                    }
-                    if (i == (mas.GetLength(0) - 1) / 2 && j == (mas.GetLength(1) - 1) / 2)
-                    {
-                        mas[i, j - 1] = '.';
-                    }
-                }
-            }
-            //GetMap(mas);
-            Win(mas);
-        }
-        static bool Win(char[,] mas)
-        {
-            for (int i = 0; i < mas.GetLength(0); i++)
-            {
-                for (int j = 0; j < mas.GetLength(1); j++)
-                {
-                    if (mas[i, j] == (char)1 || mas[i, j] == '0')
-                    {
-                        return false;
-                    }
-                }
-            }
-
-            mas[10, 10] = '0';
-            return true;
-        }
-
-        static void Batle(Person Hero, char[,] mas)
-        {
-            Console.Clear();
-            Person Enemy = new Person(Map.levelWorld * 10);
-            Random rnd = new Random();
-
-            while (Enemy.HP > 0 && Hero.HP > 0)
-            {
-                int Shot = rnd.Next(10);
-                Enemy.HP -= Shot + Hero.Strenght;
-                Shot = rnd.Next(10);
-                Hero.HP -= Shot + levelWorld * 5;
-            }
-
-            if (Enemy.HP < Hero.HP)
-            {
-                Hero.coin += rnd.Next(100);
-            }
-            else
-            {
-                Console.Clear();
-                Console.WriteLine($"Поражение");
-                Console.ReadLine();
-            }
-        }
-        static void Heart(Person Hero, char[,] mas)
-        {
-            Console.Clear();
-            Hero.MaxHP += 10;
-            Hero.HP += Hero.MaxHP / 10;
-
-        }
-        static void Portal(Person Hero, char[,] mas)
-        {
-            for (int i = 0; i < mas.GetLength(0); i++)
-            {
-                for (int j = 0; j < mas.GetLength(1); j++)
-                {
-                    if (mas[i, j] == (char)3)
-                    {
-                        Hero.coin += 100;
-                    }
-                }
-            }
-            Hero.HP = Hero.MaxHP;
-            Array(mas);
-        }
-        static void Forge(Person Hero)
-        {
-            Console.WriteLine("Выберите действие");
-            Console.WriteLine("1. Улучшить силу на 2");
-            Console.WriteLine("Для выхода нажмите Enter");
-            Console.WriteLine($"Оставшиеся деньги {Hero.coin}");
-            ConsoleKey key;
-            while ((key = Console.ReadKey().Key) != ConsoleKey.Enter)
-            {
-                switch (key)
-                {
-                    case ConsoleKey.NumPad1:
-                        if (Hero.coin > 250)
-                        {
-                            Hero.Strenght += 2;
-                            Hero.coin -= 250;
-                            Console.WriteLine($"Сила увеличена на 2, Текущая сила = {Hero.Strenght}");
-                            Console.WriteLine($"Оставшиеся деньги {Hero.coin}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Недостаточно деняк");
-                        }
-                        break;
-                }
-            }
-        }
-        static public bool GetIvent(Person Hero, char[,] mas, int A = 0, int B = 0)
-        {
-            char key = mas[((mas.GetLength(0) - 1) / 2) + A, ((mas.GetLength(1) - 1) / 2) + B];
-
-            switch (key)
-            {
-                case (char)1:
-                    Batle(Hero, mas);
-                    break;
-                case (char)3:
-                    Heart(Hero, mas);
-                    break;
-                case '0':
-                    levelWorld++;
-                    Portal(Hero, mas);
-                    break;
-                case (char)19:
-                    Forge(Hero);
-                    break;
-                case (char)0177:
-                    return false;
-                case (char)06:
-                    return false;
-                default:
-                    break;
-            }
-            return true;
-
-        }
+        //}
     }
 }

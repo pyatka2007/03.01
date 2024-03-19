@@ -22,20 +22,20 @@ namespace ConsoleApp46
                 switch (Key)
                 {
                     case ConsoleKey.UpArrow:
-                        if (Map.GetIvent(hero, map, -1, 0))
-                            Map.UpArray(map);
+                        if (Activity.GetIvent(hero, map, -1, 0))
+                            Move.UpArray(map);
                         break;
                     case ConsoleKey.DownArrow:
-                        if (Map.GetIvent(hero, map, +1, 0))
-                            Map.DownArray(map);
+                        if (Activity.GetIvent(hero, map, +1, 0))
+                            Move.DownArray(map);
                         break;
                     case ConsoleKey.LeftArrow:
-                        if (Map.GetIvent(hero, map, 0, -1))
-                            Map.LeftArray(map);
+                        if (Activity.GetIvent(hero, map, 0, -1))
+                            Move.LeftArray(map);
                         break;
                     case ConsoleKey.RightArrow:
-                        if (Map.GetIvent(hero, map, 0, +1))
-                            Map.RightArray(map);
+                        if (Activity.GetIvent(hero, map, 0, +1))
+                            Move.RightArray(map);
                         break;
                     default:
                         break;
