@@ -19,63 +19,50 @@ namespace ConsoleApp46
             {
                 for (int j = 0; j < mas.GetLength(1); j++)
                 {
-                    if (mas[i, j] == '0')
+                    switch (mas[i, j])
                     {
-                        Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.Write(mas[i, j] + " ");
-                        Console.ResetColor();
+                        case '0':
+                            Console.ForegroundColor = ConsoleColor.Blue;
+                            break;
+                        case (char)1:
+                            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                            break;
+                        case (char)3:
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            break;
+                        case (char)19:
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            break;
+                        case (char)0177:
+                            Console.ForegroundColor = ConsoleColor.Gray;
+                            break;
+                        case (char)2:
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            break;
+                        case (char)06:
+                            switch (rnd.Next(4))
+                            {
+                               
+                                case 1:
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    break;
+                                case 2:
+                                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                                    break;
+                                default:
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    break;
+                            }
+                            break;
+                        default:
+                            
+                            break;
                     }
-                    else if (mas[i, j] == (char)1)
-                    {
-                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                        Console.Write(mas[i, j] + " ");
-                        Console.ResetColor();
-                    }
-                    else if (mas[i, j] == (char)3)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write(mas[i, j] + " ");
-                        Console.ResetColor();
-                    }
-                    else if (mas[i, j] == (char)19)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.Write(mas[i, j] + " ");
-                        Console.ResetColor();
-                    }
-                    else if (mas[i, j] == (char)0177)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.Write(mas[i, j] + " ");
-                        Console.ResetColor();
-                    }
-                    else if (mas[i, j] == (char)2)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.Write(mas[i, j] + " ");
-                        Console.ResetColor();
-                    }
-                    else if (mas[i, j] == (char)06)
-                    {
-                        if (rnd.Next(0, 6) != 5)
-                        {
-                            Console.ForegroundColor = ConsoleColor.DarkGreen;
-                        }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        }
-                        Console.Write(mas[i, j] + " ");
-                        Console.ResetColor();
-                    }
-                    else
-                    {
-                        Console.Write(mas[i, j] + " ");
-                    }
+                    Console.Write(mas[i, j] + " ");
+                    Console.ResetColor();
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine();
         }
         static public void Array(char[,] mas)
         {
@@ -126,7 +113,10 @@ namespace ConsoleApp46
                 }
             }
         }
-        
+        static public void Move(char[,] mas)
+        {
+
+        }
         static public void UpArray(char[,] mas)
         {
             char[] temp = new char[mas.GetLength(0)];
@@ -158,14 +148,12 @@ namespace ConsoleApp46
                     }
                 }
             }
-
             ///  GetMap(mas);
             Win(mas);
         }
         static public void DownArray(char[,] mas)
         {
             char[] temp = new char[mas.GetLength(0)];
-
 
             for (int i = 0; i < mas.GetLength(0); i++)
             {
@@ -183,7 +171,6 @@ namespace ConsoleApp46
                     {
                         mas[i, j] = mas[i + 1, j];
                     }
-
                     if (i == (mas.GetLength(0) - 1) / 2 && j == (mas.GetLength(1) - 1) / 2)
                     {
                         mas[i, j] = (char)2;

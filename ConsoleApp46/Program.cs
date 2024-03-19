@@ -10,12 +10,11 @@ namespace ConsoleApp46
     {
         static void Main(string[] args)
         {
-
             Console.WriteLine("Введите имя персонажа");
             string name = Console.ReadLine();
             char[,] map = new char[25, 25];
             Map.Array(map);
-            Person hero = new Person(150, name);
+            Person hero = new Person(100, name);
             ConsoleKey Key;
             while ((Key = Console.ReadKey().Key) != ConsoleKey.Escape)
             {
