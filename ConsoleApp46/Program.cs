@@ -42,6 +42,7 @@ namespace ConsoleApp46
                 }
                 Map.GetMap(mas);
                 Person.GetCharacter(hero);
+                Move.MoveEnemy(mas);
             }
         }
     }

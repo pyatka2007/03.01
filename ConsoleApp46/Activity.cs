@@ -20,11 +20,10 @@ namespace ConsoleApp46
                     }
                 }
             }
-
             mas[10, 10] = '0';
             return true;
         }
-        static void Batle(Person Hero, char[,] mas)
+        static public void Batle(Person Hero, char[,] mas)
         {
             Console.Clear();
             Person Enemy = new Person(Map.levelWorld * 10);

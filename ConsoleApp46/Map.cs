@@ -37,6 +37,9 @@ namespace ConsoleApp46
                         case (char)2:
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             break;
+                        case 'E':
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            break;
                         case (char)06:
                             switch (rnd.Next(4))
                             {
@@ -72,6 +75,10 @@ namespace ConsoleApp46
                     int count = rnd.Next(100);
 
                     mas[i, j] = '.';
+                    if (i == 0 && j == 0) // Проверка точки появления врага (0,0)
+                    {
+                        mas[i, j] = 'E'; // Устанавливаем символ врага в точке (0,0)
+                    }
                     if (count < 2)
                     {
                         mas[i, j] = (char)1;
