@@ -18,6 +18,7 @@ namespace ConsoleApp46
                     {
                         return false;
                     }
+                   
                 }
             }
             mas[10, 10] = '0';

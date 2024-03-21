@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp46
 {
-    class Move
+    public class Move
     {
         static public void UpArray(char[,] mas)
         {
@@ -99,7 +99,6 @@ namespace ConsoleApp46
                     {
                         mas[i, j + 1] = '.';
                     }
-
                 }
             }
             Activity.Win(mas);
@@ -136,55 +135,6 @@ namespace ConsoleApp46
             }
             Activity.Win(mas);
         }
-
-        static public void MoveEnemy(char[,] mas)
-        {
-            int enemyX = 0;
-            int enemyY = 0;
-            int HeroX = 0;
-            int HeroY = 0;
-            // Находим текущее положение врага 'E' и позицию цели '2' на карте
-
-            for (int i = 0; i < mas.GetLength(0); i++)
-            {
-                for (int j = 0; j < mas.GetLength(1); j++)
-                {
-                    if (mas[i, j] == 'E')
-                    {
-                        enemyX = i;
-                        enemyY = j;
-
-                    }
-                    if (mas[i, j] == (char)2)
-                    {
-                        HeroX = i;
-                        HeroY = j;
-                    }
-                }
-            }
-            
-            //}
-            // Двигаем врага в сторону цели
-            if (enemyX != -1 && enemyY != -1 && HeroX != -1 && HeroY != -1)
-            {
-                // Определяем направление движения к цели
-                int dx = HeroX - enemyX;
-                int dy = HeroY - enemyY;
-                if (mas[enemyX + Math.Sign(dx), enemyY] != (char)0177 && mas[enemyX + Math.Sign(dx), enemyY] != (char)6 && mas[enemyX + Math.Sign(dx), enemyY] != (char)1)
-                {
-                    mas[enemyX, enemyY] = '.'; // Очищаем текущую позицию врага
-                    enemyX += Math.Sign(dx); // Перемещаем врага по X
-                }
-                else if (mas[enemyX, enemyY + Math.Sign(dy)] != (char)0177 && mas[enemyX, enemyY + Math.Sign(dy)] != (char)6 && mas[enemyX, enemyY + Math.Sign(dy)] != (char)1)
-                {
-                    mas[enemyX, enemyY] = '.'; // Очищаем текущую позицию врага
-                    enemyY += Math.Sign(dy); // Перемещаем врага по Y
-                }
-
-                mas[enemyX, enemyY] = 'E'; // Устанавливаем новую позицию врага на карте
-            
-            }
-            
-        }
+          
     }
 }

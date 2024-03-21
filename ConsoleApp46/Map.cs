@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp46
 {
+   
     internal class Map
     {
         static public int levelWorld = 1;
@@ -75,7 +76,7 @@ namespace ConsoleApp46
                     int count = rnd.Next(100);
 
                     mas[i, j] = '.';
-                    if (i == 0 && j == 0) // Проверка точки появления врага (0,0)
+                    if (i <= 0 && j <= 0) // Проверка точки появления врага (0,0)
                     {
                         mas[i, j] = 'E'; // Устанавливаем символ врага в точке (0,0)
                     }
@@ -87,7 +88,7 @@ namespace ConsoleApp46
                     {
                         mas[i, j] = (char)3;
                     }
-                    if (count >= 10 && count < 17)
+                    if (count >= 10 && count < 12)
                     {
                         for (int k = i - 1; k <= i + 1; k++)
                         {

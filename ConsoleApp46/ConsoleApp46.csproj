@@ -46,6 +46,7 @@
     <Compile Include="Activity.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Move.cs" />
+    <Compile Include="MoveEnemy.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
