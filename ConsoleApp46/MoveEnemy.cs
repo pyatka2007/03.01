@@ -45,7 +45,7 @@ namespace ConsoleApp46
                 {
                     
                     map[i, j] = new Node(i, j);
-                    if(mas[i,j] == '♠' || mas[i,j] == (char)0177)
+                    if(mas[i,j] == (char)6 || mas[i,j] == (char)0177)
                     {
                         map[i, j].IsObstacle = true;
                     }
@@ -80,7 +80,7 @@ namespace ConsoleApp46
             if (map != null)
             {
                 path = AStar.FindPath(startNode, targetNode, map);
-            }
+        }
             else
             {
                 // Обработать ошибку, например вывести сообщение об отсутствии карты
@@ -220,8 +220,8 @@ namespace ConsoleApp46
                 foreach (Node neighbor in current.Neighbors)
                 {
                     // Проверка, находится ли сосед за пределами карты
-                    if (neighbor.X < 0 || neighbor.X >= map.GetLength(0) ||
-                        neighbor.Y < 0 || neighbor.Y >= map.GetLength(1))
+                    if (neighbor.X > 0 || neighbor.X >= map.GetLength(0) ||
+                        neighbor.Y > 0 || neighbor.Y >= map.GetLength(1))
                     {
                         continue;
                     }
