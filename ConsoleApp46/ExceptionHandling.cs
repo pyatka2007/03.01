@@ -8,6 +8,7 @@ namespace ConsoleApp46
 {
     internal class ExceptionHandling
     {
+        // Метод для обработки исключения
         public static void HandleException(Exception ex)
         {
             Console.WriteLine($"Произошла ошибка: {ex.Message}");

@@ -8,6 +8,10 @@ namespace ConsoleApp46
 {
     public class MoveEnemy
     {
+        // <summary>
+        /// Метод для перемещения врага по карте к игроку (2) с использованием алгоритма A*
+        /// </summary>
+        /// <param name="mas">Двумерный массив символов, представляющий карту</param>
         static public void MoveEnemy2(char[,] mas)
         {
             int enemyX = -1;

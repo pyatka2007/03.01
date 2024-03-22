@@ -8,6 +8,10 @@ namespace ConsoleApp46
 {
     public class Move
     {
+        /// <summary>
+        /// Метод для смещения элементов вверх
+        /// </summary>
+        /// <param name="mas">Двумерный массив символов</param>
         static public void UpArray(char[,] mas)
         {
             char[] temp = new char[mas.GetLength(0)];
@@ -39,6 +43,10 @@ namespace ConsoleApp46
             }
             Activity.Win(mas);
         }
+        // <summary>
+        /// Метод для смещения элементов вниз
+        /// </summary>
+        /// <param name="mas">Двумерный массив символов</param>
         static public void DownArray(char[,] mas)
         {
             char[] temp = new char[mas.GetLength(0)];
@@ -71,6 +79,10 @@ namespace ConsoleApp46
             }
             Activity.Win(mas);
         }
+        /// <summary>
+        /// Метод для смещения элементов влево
+        /// </summary>
+        /// <param name="mas">Двумерный массив символов</param>
         static public void LeftArray(char[,] mas)
         {
             char[] temp = new char[mas.GetLength(1)];
@@ -103,6 +115,10 @@ namespace ConsoleApp46
             }
             Activity.Win(mas);
         }
+        /// <summary>
+        /// Метод для смещения элементов вправо
+        /// </summary>
+        /// <param name="mas">Двумерный массив символов</param>
         static public void RightArray(char[,] mas)
         {
             char[] temp = new char[mas.GetLength(1)];

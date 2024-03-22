@@ -12,6 +12,10 @@ namespace ConsoleApp46
     {
         static public int levelWorld = 1;
         static Random rnd = new Random();
+        /// <summary>
+        /// Метод для отображения карты в консоли
+        /// </summary>
+        /// <param name="mas">Двумерный массив символов, представляющий карту</param>
         static public void GetMap(char[,] mas)
         {
             for (int i = 0; i < mas.GetLength(0); i++)
@@ -66,6 +70,10 @@ namespace ConsoleApp46
                 Console.WriteLine();
             }
         }
+        /// <summary>
+        /// Метод для генерации игровой карты
+        /// </summary>
+        /// <param name="mas">Двумерный массив символов, представляющий карту</param>
         static public void Generation(char[,] mas)
         {
             Random rnd = new Random();

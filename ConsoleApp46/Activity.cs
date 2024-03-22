@@ -8,7 +8,12 @@ namespace ConsoleApp46
 {
     internal class Activity
     {
-        static public bool Win(char[,] mas)
+        /// <summary>
+        /// Метод для проверки условия победы в игре
+        /// </summary>
+        /// <param name="mas">Игровое поле</param>
+        /// <returns>True, если условие победы выполнено, иначе False</returns>
+        static public bool Win(char[,] mas) 
         {
             for (int i = 0; i < mas.GetLength(0); i++)
             {
@@ -24,6 +29,11 @@ namespace ConsoleApp46
             mas[10, 10] = '0';
             return true;
         }
+        /// <summary>
+        /// Метод для проведения битвы между героем и врагом
+        /// </summary>
+        /// <param name="Hero">Герой</param>
+        /// <param name="mas">Игровое поле</param>
         static public void Batle(Person Hero, char[,] mas)
         {
             Console.Clear();
@@ -49,6 +59,11 @@ namespace ConsoleApp46
                 Console.ReadLine();
             }
         }
+        /// <summary>
+        /// Метод для увеличения максимального здоровья героя
+        /// </summary>
+        /// <param name="Hero">Герой</param>
+        /// <param name="mas">Игровое поле</param>
         static void Heart(Person Hero, char[,] mas)
         {
             Console.Clear();
@@ -56,6 +71,11 @@ namespace ConsoleApp46
             Hero.HP += Hero.MaxHP / 10;
 
         }
+        /// <summary>
+        /// Метод для взаимодействия с порталом
+        /// </summary>
+        /// <param name="Hero">Герой</param>
+        /// <param name="mas">Игровое поле</param>
         static void Portal(Person Hero, char[,] mas)
         {
             for (int i = 0; i < mas.GetLength(0); i++)
@@ -71,6 +91,10 @@ namespace ConsoleApp46
             Hero.HP = Hero.MaxHP;
             Map.Generation(mas);
         }
+        /// <summary>
+        /// Метод для взаимодействия с кузницей
+        /// </summary>
+        /// <param name="Hero">Герой</param>
         static void Forge(Person Hero)
         {
             Console.WriteLine("Выберите действие");
@@ -98,6 +122,14 @@ namespace ConsoleApp46
                 }
             }
         }
+        /// <summary>
+        /// Метод для обработки событий при взаимодействии героя с окружением
+        /// </summary>
+        /// <param name="Hero">Герой</param>
+        /// <param name="mas">Игровое поле</param>
+        /// <param name="A">Смещение A</param>
+        /// <param name="B">Смещение B</param>
+        /// <returns>True, если обработка события прошла успешно, иначе False</returns>
         static public bool GetIvent(Person Hero, char[,] mas, int A = 0, int B = 0)
         {
             char key = mas[((mas.GetLength(0) - 1) / 2) + A, ((mas.GetLength(1) - 1) / 2) + B];
