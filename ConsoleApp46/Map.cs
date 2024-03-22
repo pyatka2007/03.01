@@ -84,10 +84,7 @@ namespace ConsoleApp46
                     int count = rnd.Next(100);
 
                     mas[i, j] = '.';
-                    if (i <= 0 && j <= 0) // Проверка точки появления врага (0,0)
-                    {
-                        mas[i, j] = 'E'; // Устанавливаем символ врага в точке (0,0)
-                    }
+                    
                     if (count < 2)
                     {
                         mas[i, j] = (char)1;
@@ -123,6 +120,10 @@ namespace ConsoleApp46
                     if (levelWorld > 1)
                     {
                         mas[mas.GetLength(0) / 4, mas.GetLength(1) / 2] = (char)19;
+                    }
+                    if (i == 2 && j == 2) // Проверка точки появления врага (2,2)
+                    {
+                        mas[i, j] = 'E'; // Устанавливаем символ врага в точке (2,2)
                     }
                 }
             }

@@ -77,8 +77,8 @@ namespace ConsoleApp46
                     }
                 }
             }
-            Node startNode = new Node(enemyX, enemyY);
-            Node targetNode = new Node(heroX, heroY);
+            Node startNode = map[enemyX, enemyY];
+            Node targetNode = map[heroX, heroY];
             List<Node> path = null;
 
             if (map != null)
@@ -114,6 +114,7 @@ namespace ConsoleApp46
                 enemyY = nextNode.Y;
                 mas[enemyX, enemyY] = 'E'; // Обновляем позицию врага на карте
             }
+            
         }
     }
     class Node // оценка общей стоимости прохода через узел при выборе наилучшего пути
@@ -224,8 +225,8 @@ namespace ConsoleApp46
                 foreach (Node neighbor in current.Neighbors)
                 {
                     // Проверка, находится ли сосед за пределами карты
-                    if (neighbor.X > 0 || neighbor.X >= map.GetLength(0) ||
-                        neighbor.Y > 0 || neighbor.Y >= map.GetLength(1))
+                    if (neighbor.X < 0 || neighbor.X >= map.GetLength(0) ||
+                        neighbor.Y < 0 || neighbor.Y >= map.GetLength(1))
                     {
                         continue;
                     }

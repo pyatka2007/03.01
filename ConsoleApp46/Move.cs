@@ -41,6 +41,7 @@ namespace ConsoleApp46
                     }
                 }
             }
+
             Activity.Win(mas);
         }
         // <summary>
@@ -78,6 +79,7 @@ namespace ConsoleApp46
                 }
             }
             Activity.Win(mas);
+            Console.WriteLine(" Поражение");
         }
         /// <summary>
         /// Метод для смещения элементов влево

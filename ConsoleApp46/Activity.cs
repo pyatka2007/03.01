@@ -23,7 +23,7 @@ namespace ConsoleApp46
                     {
                         return false;
                     }
-                   
+                    
                 }
             }
             mas[10, 10] = '0';
@@ -47,7 +47,6 @@ namespace ConsoleApp46
                 Shot = rnd.Next(10);
                 Hero.HP -= Shot + Map.levelWorld * 5;
             }
-
             if (Enemy.HP < Hero.HP)
             {
                 Hero.coin += rnd.Next(100);
@@ -58,7 +57,9 @@ namespace ConsoleApp46
                 Console.WriteLine($"Поражение");
                 Console.ReadLine();
             }
+
         }
+
         /// <summary>
         /// Метод для увеличения максимального здоровья героя
         /// </summary>
@@ -120,6 +121,7 @@ namespace ConsoleApp46
                         }
                         break;
                 }
+
             }
         }
         /// <summary>

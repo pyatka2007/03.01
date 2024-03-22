@@ -53,6 +53,7 @@ namespace ConsoleApp46
                     Map.GetMap(mas);
                     Person.GetCharacter(hero);
                     MoveEnemy.MoveEnemy2(mas);
+                    
                 }
             }
             catch (Exception ex)

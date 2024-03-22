@@ -47,7 +47,6 @@
     <Compile Include="ExceptionHandling.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Move.cs" />
-    <Compile Include="moveE.cs" />
     <Compile Include="MoveEnemy.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
