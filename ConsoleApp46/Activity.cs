@@ -23,7 +23,6 @@ namespace ConsoleApp46
                     {
                         return false;
                     }
-                    
                 }
             }
             mas[10, 10] = '0';
@@ -57,15 +56,17 @@ namespace ConsoleApp46
                 Console.WriteLine($"Поражение");
                 Console.ReadLine();
             }
-
+           
         }
+     
 
-        /// <summary>
-        /// Метод для увеличения максимального здоровья героя
-        /// </summary>
-        /// <param name="Hero">Герой</param>
-        /// <param name="mas">Игровое поле</param>
-        static void Heart(Person Hero, char[,] mas)
+
+            /// <summary>
+            /// Метод для увеличения максимального здоровья героя
+            /// </summary>
+            /// <param name="Hero">Герой</param>
+            /// <param name="mas">Игровое поле</param>
+            static void Heart(Person Hero, char[,] mas)
         {
             Console.Clear();
             Hero.MaxHP += 10;
@@ -138,6 +139,7 @@ namespace ConsoleApp46
 
             switch (key)
             {
+                
                 case (char)1:
                     Batle(Hero, mas);
                     break;

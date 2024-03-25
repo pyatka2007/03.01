@@ -44,10 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity.cs" />
+    <Compile Include="AStar.cs" />
     <Compile Include="ExceptionHandling.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Move.cs" />
     <Compile Include="MoveEnemy.cs" />
+    <Compile Include="Node.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
