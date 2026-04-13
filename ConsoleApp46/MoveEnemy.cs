@@ -12,11 +12,13 @@ namespace ConsoleApp46
         /// Метод для перемещения врага по карте к игроку (2) с использованием алгоритма A*
         /// </summary>
         /// <param name="mas">Двумерный массив символов, представляющий карту</param>
-        static public void MoveEnemy2(char[,] mas)
+      
+        static public void MoveEnemy2(char[,] mas, bool spacePressed = false)
         {
+            
             int enemyX = -1;
             int enemyY = -1;
-            int heroX = -1;  
+            int heroX = -1;
             int heroY = -1;
 
             // Находим текущее положение врага 'E' и позицию цели '2' на карте
@@ -93,26 +95,38 @@ namespace ConsoleApp46
             {
                 // Очищаем текущую позицию врага
                 mas[enemyX, enemyY] = '.';
+
+                // Если враг находится на расстоянии 4 точек и ближе, а также был нажат пробел
+                if (AStar.CalculateHeuristic(startNode, targetNode) <= 4 && spacePressed==true)
+                {
+                    // Увеличиваем вес узлов на пути врага
+                    for (int i = 0; i < 3 && path.Count > 1; i++)
+                    {
+                        path.RemoveAt(1); // Удаляем следующий узел пути, чтобы пропустить шаг
+                    }
+                }
+                spacePressed = false;
+
                 // Перемещаем врага к следующему узлу пути
-                Node nextNode = path[2]; // [0] - начальное положение (текущая позиция врага)
+                Node nextNode = path[1]; // [0] - начальное положение (текущая позиция врага)
                 enemyX = nextNode.X;
                 enemyY = nextNode.Y;
                 mas[enemyX, enemyY] = 'E'; // Обновляем позицию врага на карте
-            }
 
-            for (int i = (mas.GetLength(0) - 1); i >= 0; i--) // Когда E догнал игрока поражение
-            {
-                for (int j = 0; j < mas.GetLength(1); j++)
+                for (int i = (mas.GetLength(0) - 1); i >= 0; i--) // Когда E догнал игрока поражение
                 {
-                    if (enemyX == heroX && enemyY == heroY)
+                    for (int j = 0; j < mas.GetLength(1); j++)
                     {
-                        Console.Clear();
-                        Console.WriteLine("поражение");
-                        Console.ReadLine();
+                        if (enemyX == heroX && enemyY == heroY)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("поражение");
+                            Console.ReadLine();
+                        }
                     }
                 }
             }
         }
+
     }
-    
 }

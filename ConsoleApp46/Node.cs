@@ -28,6 +28,7 @@ namespace ConsoleApp46
         /// Родительский узел.
         /// </summary>
         public Node Parent { get; set; }
+        public int Weight { get; set; }
         public bool IsObstacle { get; set; }
 
         /// <summary>
@@ -41,6 +42,7 @@ namespace ConsoleApp46
             Y = y;
             Neighbors = new List<Node>();
             IsObstacle = false;
+
         }
     }
 }

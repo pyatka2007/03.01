@@ -22,6 +22,13 @@ namespace ConsoleApp46
                 char[,] mas = new char[25, 25];
                 Map.Generation(mas);
                 Person hero = new Person(100, name);
+
+                // Создаем экземпляр объекта BasicArrayMover, который реализует интерфейс IArrayMover
+                IArrayMover arrayMover = new BasicArrayMover();
+
+                // Передаем экземпляр объекта BasicArrayMover в конструктор Move
+                Move move = new Move(arrayMover);
+
                 ConsoleKey Key;
 
                 while ((Key = Console.ReadKey().Key) != ConsoleKey.Escape)
@@ -32,19 +39,19 @@ namespace ConsoleApp46
                     {
                         case ConsoleKey.UpArrow:
                             if (Activity.GetIvent(hero, mas, -1, 0))
-                                Move.UpArray(mas);
+                                move.MoveUp(mas);
                             break;
                         case ConsoleKey.DownArrow:
                             if (Activity.GetIvent(hero, mas, 1, 0))
-                                Move.DownArray(mas);
+                                move.MoveDown(mas);
                             break;
                         case ConsoleKey.LeftArrow:
                             if (Activity.GetIvent(hero, mas, 0, -1))
-                                Move.LeftArray(mas);
+                                move.MoveLeft(mas);
                             break;
                         case ConsoleKey.RightArrow:
                             if (Activity.GetIvent(hero, mas, 0, 1))
-                                Move.RightArray(mas);
+                                move.MoveRight(mas);
                             break;
                         default:
                             break;
@@ -52,18 +59,19 @@ namespace ConsoleApp46
 
                     Map.GetMap(mas);
                     Person.GetCharacter(hero);
-                    MoveEnemy.MoveEnemy2(mas);
-                    
+                    // Например, нажата ли клавиша пробела
+                    bool spacePressed = false; // или false, в зависимости от вашей логики
+
+                    // Вызываем метод MoveEnemy2 из класса MoveEnemy
+                    MoveEnemy.MoveEnemy2(mas, spacePressed);
                 }
             }
             catch (Exception ex)
             {
                 ExceptionHandling.HandleException(ex);
             }
-
-
         }
-        
+
     }
 }
   

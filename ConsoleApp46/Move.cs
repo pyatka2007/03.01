@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp46
 {
-    public class Move
+    public interface IArrayMover
     {
-        /// <summary>
-        /// Метод для смещения элементов вверх
-        /// </summary>
-        /// <param name="mas">Двумерный массив символов</param>
-        static public void UpArray(char[,] mas)
+        void MoveUp(char[,] mas);
+        void MoveDown(char[,] mas);
+        void MoveLeft(char[,] mas);
+        void MoveRight(char[,] mas);
+    }
+
+    public class BasicArrayMover : IArrayMover
+    {
+        public void MoveUp(char[,] mas)
         {
             char[] temp = new char[mas.GetLength(0)];
             for (int i = (mas.GetLength(0) - 1); i >= 0; i--)
@@ -41,13 +45,10 @@ namespace ConsoleApp46
                     }
                 }
             }
-            Activity.Win(mas);
+           
         }
-        // <summary>
-        /// Метод для смещения элементов вниз
-        /// </summary>
-        /// <param name="mas">Двумерный массив символов</param>
-        static public void DownArray(char[,] mas)
+
+        public void MoveDown(char[,] mas)
         {
             char[] temp = new char[mas.GetLength(0)];
 
@@ -77,13 +78,9 @@ namespace ConsoleApp46
                     }
                 }
             }
-            Activity.Win(mas);
         }
-        /// <summary>
-        /// Метод для смещения элементов влево
-        /// </summary>
-        /// <param name="mas">Двумерный массив символов</param>
-        static public void LeftArray(char[,] mas)
+
+        public void MoveLeft(char[,] mas)
         {
             char[] temp = new char[mas.GetLength(1)];
 
@@ -113,13 +110,10 @@ namespace ConsoleApp46
                     }
                 }
             }
-            Activity.Win(mas);
+           
         }
-        /// <summary>
-        /// Метод для смещения элементов вправо
-        /// </summary>
-        /// <param name="mas">Двумерный массив символов</param>
-        static public void RightArray(char[,] mas)
+
+        public void MoveRight(char[,] mas)
         {
             char[] temp = new char[mas.GetLength(1)];
 
@@ -149,8 +143,44 @@ namespace ConsoleApp46
                     }
                 }
             }
+            
+        }
+    }
+
+    public class Move
+    {
+        private readonly IArrayMover _arrayMover;
+
+        public Move(IArrayMover arrayMover)
+        {
+            _arrayMover = arrayMover;
+        }
+
+        public void MoveUp(char[,] mas)
+        {
+            _arrayMover.MoveUp(mas);
             Activity.Win(mas);
         }
-          
+
+        public void MoveDown(char[,] mas)
+        {
+            _arrayMover.MoveDown(mas);
+            Activity.Win(mas);
+        }
+
+        public void MoveLeft(char[,] mas)
+        {
+            _arrayMover.MoveLeft(mas);
+            Activity.Win(mas);
+        }
+
+        public void MoveRight(char[,] mas)
+        {
+            _arrayMover.MoveRight(mas);
+            Activity.Win(mas);
+        }
     }
-}
+
+
+
+    }
