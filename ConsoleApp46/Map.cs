@@ -10,8 +10,13 @@ namespace ConsoleApp46
    
     internal class Map
     {
+        private static IMapGenerator _generator;
         static public int levelWorld = 1;
         static Random rnd = new Random();
+        public static void SetGenerator(IMapGenerator generator)
+        {
+            _generator = generator;
+        }
         /// <summary>
         /// Метод для отображения карты в консоли
         /// </summary>
@@ -76,57 +81,9 @@ namespace ConsoleApp46
         /// <param name="mas">Двумерный массив символов, представляющий карту</param>
         static public void Generation(char[,] mas)
         {
-            Random rnd = new Random();
-            for (int i = 0; i < mas.GetLength(0); i++)
-            {
-                for (int j = 0; j < mas.GetLength(1); j++)
-                {
-                    int count = rnd.Next(100);
-
-                    mas[i, j] = '.';
-                    
-                    if (count < 2)
-                    {
-                        mas[i, j] = (char)1;
-                    }
-                    if (count >= 98)
-                    {
-                        mas[i, j] = (char)3;
-                    }
-                    if (count >= 10 && count < 17) //Исправлен диапазон генерации деревьев
-                    {
-                        for (int k = i - 1; k <= i + 1; k++)
-                        {
-                            for (int l = j - 1; l <= j + 1; l++)
-                            {
-                                if (k >= 0 && k < mas.GetLength(0) && l >= 0 && l < mas.GetLength(1))
-                                {
-                                    mas[k, l] = (char)06;
-                                }
-                            }
-                        }
-                    }
-                    if (count >= 5 && count < 10)
-                    {
-                        int X = i;
-                        int Y = j;
-                        for (int t = 0; t < 10; t++)
-                        {
-                            mas[X++, Y++] = (char)0177;
-                            if (X > mas.GetLength(0) - 1 || Y > mas.GetLength(1) - 1)
-                                break;
-                        }
-                    }
-                    if (levelWorld > 1)
-                    {
-                        mas[mas.GetLength(0) / 4, mas.GetLength(1) / 2] = (char)19;
-                    }
-                    if (i == 2 && j == 2) // Проверка точки появления врага (2,2)
-                    {
-                        mas[i, j] = 'E'; // Устанавливаем символ врага в точке (2,2)
-                    }
-                }
-            }
+            if (_generator == null)
+                throw new InvalidOperationException("Генератор не установлен. Вызовите SetGenerator перед Generation.");
+            _generator.Generate(mas);
         }
     }
 }

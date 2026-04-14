@@ -46,6 +46,7 @@
     <Compile Include="Activity.cs" />
     <Compile Include="AStar.cs" />
     <Compile Include="ExceptionHandling.cs" />
+    <Compile Include="IMapGenerator.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Move.cs" />
     <Compile Include="MoveEnemy.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomMapGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

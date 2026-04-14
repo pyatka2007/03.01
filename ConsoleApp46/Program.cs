@@ -20,7 +20,10 @@ namespace ConsoleApp46
                 }
 
                 char[,] mas = new char[25, 25];
+                IMapGenerator generator = new RandomMapGenerator();
+                Map.SetGenerator(generator);
                 Map.Generation(mas);
+
                 Person hero = new Person(100, name);
 
                 // Создаем экземпляр объекта BasicArrayMover, который реализует интерфейс IArrayMover
