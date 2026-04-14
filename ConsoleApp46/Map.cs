@@ -93,7 +93,7 @@ namespace ConsoleApp46
                     {
                         mas[i, j] = (char)3;
                     }
-                    if (count >= 10 && count < 14)
+                    if (count >= 10 && count < 17) //Исправлен диапазон генерации деревьев
                     {
                         for (int k = i - 1; k <= i + 1; k++)
                         {
