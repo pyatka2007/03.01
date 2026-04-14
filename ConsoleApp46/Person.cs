@@ -8,8 +8,8 @@ namespace ConsoleApp46
 {
     internal class Person
     {
-        public int MaxHP = 100;
-        public int HP = 100;
+        public int MaxHP; //Убрана лишняя инициализация полей
+        public int HP;
         public int Strenght = 0;
         public int coin = 0;
         public string NamePerson;
@@ -22,6 +22,7 @@ namespace ConsoleApp46
         {
             NamePerson = Name;
             this.HP = HP;
+            this.MaxHP = HP;
         }
         /// <summary>
         /// Метод для вывода информации о персонаже в консоль

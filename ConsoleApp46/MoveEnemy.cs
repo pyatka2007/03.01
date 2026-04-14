@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp46
 {
-    public class MoveEnemy
+    public static class MoveEnemy //добавлен static
     {
         // <summary>
         /// Метод для перемещения врага по карте к игроку (2) с использованием алгоритма A*
@@ -91,13 +91,13 @@ namespace ConsoleApp46
                 // Обработать ошибку, например вывести сообщение об отсутствии карты
                 Console.WriteLine("Карта не создана.");
             }
-            if (path != null)
+            if (path.Count > 0) //Было (path != null)
             {
                 // Очищаем текущую позицию врага
                 mas[enemyX, enemyY] = '.';
 
                 // Если враг находится на расстоянии 4 точек и ближе, а также был нажат пробел
-                if (AStar.CalculateHeuristic(startNode, targetNode) <= 4 && spacePressed==true)
+                if (AStar.CalculateHeuristic(startNode, targetNode) <= 4 && spacePressed) //убрано true
                 {
                     // Увеличиваем вес узлов на пути врага
                     for (int i = 0; i < 3 && path.Count > 1; i++)

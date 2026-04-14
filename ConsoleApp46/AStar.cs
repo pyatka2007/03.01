@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp46
 {
-    class AStar
+    static class AStar //добавлен static
     {
         /// <summary>
         /// Находит кратчайший путь от начального узла до конечного.
@@ -121,7 +121,7 @@ namespace ConsoleApp46
 
             }
             // ## Путь не найден
-            return null;
+            return new List<Node>(); //замена null на new List<Node>()
         }
         /// <summary>
         /// Восстанавливает кратчайший путь от конечного узла до начального.

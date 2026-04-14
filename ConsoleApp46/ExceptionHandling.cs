@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp46
 {
-    internal class ExceptionHandling
+    internal static class ExceptionHandling
     {
         // Метод для обработки исключения
-        public static void HandleException(Exception ex)
+        public static void HandleException(Exception ex) //добавлен static
         {
             Console.WriteLine($"Произошла ошибка: {ex.Message}");
         }

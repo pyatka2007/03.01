@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp46
 {
-    internal class Activity
+    internal static class Activity //добавлен static
     {
         /// <summary>
         /// Метод для проверки условия победы в игре
