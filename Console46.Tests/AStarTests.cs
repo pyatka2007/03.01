@@ -43,7 +43,7 @@ namespace Console46.Tests
             for (int i = 0; i < 2; i++)
                 for (int j = 0; j < 2; j++)
                     map[i, j] = new Node(i, j) { IsObstacle = false };
-            // Блокируем все соседние клетки, чтобы пути не было
+            // Блокируем все соседние клетки
             map[0, 1].IsObstacle = true;
             map[1, 0].IsObstacle = true;
             // Добавляем соседей
