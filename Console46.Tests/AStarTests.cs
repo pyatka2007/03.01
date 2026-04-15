@@ -38,7 +38,7 @@ namespace Console46.Tests
         [Test]
         public void FindPath_WhenNoPath_ReturnsEmptyList()
         {
-            // Создаём карту с препятствием, блокирующим путь
+            // Создаём карту с препятствием
             Node[,] map = new Node[2, 2];
             for (int i = 0; i < 2; i++)
                 for (int j = 0; j < 2; j++)
