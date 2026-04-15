@@ -16,7 +16,7 @@ namespace Console46.Tests
         
         [Test]
         public void Generate_ShouldFillMapWithNonEmptyCells()
-        {   
+        {   //gg
             var generator = new RandomMapGenerator();
             char[,] map = new char[25, 25];
             generator.Generate(map);
