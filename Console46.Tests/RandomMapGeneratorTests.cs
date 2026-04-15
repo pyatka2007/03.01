@@ -13,7 +13,7 @@ namespace Console46.Tests
             char[,] map = new char[25, 25];
             Assert.DoesNotThrow(() => generator.Generate(map));
         }
-        //попа
+        
         [Test]
         public void Generate_ShouldFillMapWithNonEmptyCells()
         {   
