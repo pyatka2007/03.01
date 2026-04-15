@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp46
 {
-    internal static class Activity //добавлен static
+    public static class Activity //добавлен static
     {
         /// <summary>
         /// Метод для проверки условия победы в игре
@@ -61,12 +61,12 @@ namespace ConsoleApp46
      
 
 
-            /// <summary>
+        /// <summary>
             /// Метод для увеличения максимального здоровья героя
             /// </summary>
             /// <param name="Hero">Герой</param>
             /// <param name="mas">Игровое поле</param>
-            static void Heart(Person Hero, char[,] mas)
+        public static void Heart(Person Hero, char[,] mas)
         {
             Console.Clear();
             Hero.MaxHP += 10;

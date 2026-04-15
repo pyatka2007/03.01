@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp46
 {
-    internal class Person
+    public class Person
     {
         public int MaxHP; //Убрана лишняя инициализация полей
         public int HP;
