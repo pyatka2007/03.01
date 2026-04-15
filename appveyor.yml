@@ -1,0 +1,11 @@
+image: Visual Studio 2022
+
+build_script:
+  - dotnet build --configuration Release
+
+test_script:
+  - dotnet test --no-build --logger trx
+
+artifacts:
+  - path: '**/*.trx'
+    name: TestResults
